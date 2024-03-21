@@ -24,7 +24,7 @@ docker exec -it apicrm_php bash
 composer install
 ```
 
-4. Копируем .env.example в .env
+4. Копируем .env.example в .env, переписываем ключи и доступы AmoCRM в .env
 
 5. Запускаем миграции
 
@@ -34,7 +34,7 @@ php artisan migrate
 
 ## Запуск проекта
 
-1. Получение access токена и refrsh токена
+1. Получение access токена и refresh токена
 
 ```
 php artisan app:amo-crm (20-минутный код интеграции)
