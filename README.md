@@ -12,7 +12,7 @@
 docker-compose up -d
 ```
 
-2. Заходим в докер из под bash, как запустится
+2. Заходим в докер из под bash
 
 ```
 docker exec -it apicrm_php bash
