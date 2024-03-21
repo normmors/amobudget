@@ -12,8 +12,8 @@ use League\OAuth2\Client\Token\AccessToken;
 
 class AmoCrmChangeBudget
 {
-    private static $cost_price_id;
-    private static $profit_id;
+    private static $cost_price_id; //id поля 'Себестоимость'
+    private static $profit_id; //id поля 'Прибыль'
     private static function initializeCustomsFieldsIds() {
         self::$cost_price_id = env('COST_PRICE_ID');
         self::$profit_id = env('PROFIT_ID');

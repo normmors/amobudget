@@ -13,7 +13,7 @@ class AmoCrmCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'app:amo-crm {code?}';
+    protected $signature = 'app:amo-crm {code?}'; //code = Код авторизации
 
     /**
      * The console command description.

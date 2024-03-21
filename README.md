@@ -37,7 +37,7 @@ php artisan migrate
 1. Получение access токена и refresh токена
 
 ```
-php artisan app:amo-crm (20-минутный код интеграции)
+php artisan app:amo-crm (20-минутный код авторизации)
 ```
 Интеграция получит токены и рассчитает бюджет
 
