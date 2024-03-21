@@ -7,7 +7,6 @@ use AmoCRM\Models\CustomFieldsValues\NumericCustomFieldValuesModel;
 use AmoCRM\Models\CustomFieldsValues\ValueCollections\NumericCustomFieldValueCollection;
 use AmoCRM\Models\CustomFieldsValues\ValueModels\NumericCustomFieldValueModel;
 
-use AmoCRM\Client\AmoCRMApiClient;
 use Illuminate\Support\Facades\Storage;
 use League\OAuth2\Client\Token\AccessToken;
 
@@ -37,46 +36,6 @@ class AmoCrmChangeBudget
         foreach ($leadsServices as $leadsService) {
             $lead = self::updateLead($leadsService, $cost_price_id, $profit_id);
             $lead = $apiClient->leads()->updateOne($lead);
-            /* $price = $leadsService->price;
-            
-            $customFields = $leadsService->getCustomFieldsValues();
-            if (!empty($customFields)) {
-                $costPriceField = $customFields->getBy('fieldId', intval($cost_price_id));
-            }
-            if(!empty($costPriceField) && !empty($price)){
-                $costPrice = $costPriceField->getValues()->first()->value;
-                $profit = $price - $costPrice;
-            } else if (empty($costPriceField) && !empty($price)) {
-                $profit = $price;
-            } else if (!empty($costPriceField) && empty($price)){
-                $profit = 0 - $costPrice;
-            };
-            $lead = $leadsService->setCustomFieldsValues(
-                (new CustomFieldsValuesCollection)
-                    ->add(
-                        (new NumericCustomFieldValuesModel)
-                        ->setFieldId($profit_id)
-                        ->setValues((new NumericCustomFieldValueCollection)
-                        ->add((new NumericCustomFieldValueModel)->setValue($profit)))
-                )
-            );
-            $fieldsCollection = new CustomFieldsValuesCollection;
-            $numCustomFieldValuesModel = new NumericCustomFieldValuesModel;
-            $numCustomFieldCollection = new NumericCustomFieldValueCollection;
-            $numCustomFieldValueModel = new NumericCustomFieldValueModel;
-            $leadSetFields = $leadsService->setCustomFieldsValues(
-                $fieldsCollection->add(
-                        $numCustomFieldValuesModel->setFieldId($profit_id)
-                        ->setValues($numCustomFieldCollection
-                            ->add($numCustomFieldValueModel
-                                ->setValue($profit)
-                            )
-                        )
-                    )
-            );
-          
-
-            $lead = $apiClient->leads()->updateOne($lead); */
         }
     }
     public static function updateLead($leadsService, $cost_price_id, $profit_id) {
@@ -95,14 +54,7 @@ class AmoCrmChangeBudget
             } else if (empty($costPriceField) && !empty($price)) {
                 $profit = $price;
             };
-            /* $lead = $leadsService->setCustomFieldsValues((new CustomFieldsValuesCollection)
-                    ->add((new NumericCustomFieldValuesModel)
-                        ->setFieldId($profit_id)
-                        ->setValues((new NumericCustomFieldValueCollection)
-                        ->add((new NumericCustomFieldValueModel)
-                        ->setValue($profit)))
-                )
-            ); */
+            
             $fieldsCollection = new CustomFieldsValuesCollection;
             $numCustomFieldValuesModel = new NumericCustomFieldValuesModel;
             $numCustomFieldCollection = new NumericCustomFieldValueCollection;

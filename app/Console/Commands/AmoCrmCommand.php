@@ -2,18 +2,10 @@
 
 namespace App\Console\Commands;
 
-use AmoCRM\Collections\CustomFieldsValuesCollection;
-use AmoCRM\Models\CustomFieldsValues\NumericCustomFieldValuesModel;
-use AmoCRM\Models\CustomFieldsValues\ValueCollections\NumericCustomFieldValueCollection;
-use AmoCRM\Models\CustomFieldsValues\ValueModels\NumericCustomFieldValueModel;
 use Illuminate\Console\Command;
-
-use AmoCRM\Client\AmoCRMApiClient;
-use Illuminate\Support\Facades\Storage;
-use League\OAuth2\Client\Token\AccessToken;
-
 use App\Jobs\AmoCrmGetAccessTokenJob;
 use App\Jobs\AmoCrmChangeBudgetJob;
+
 class AmoCrmCommand extends Command
 {
     /**
