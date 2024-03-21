@@ -6,12 +6,12 @@ use AmoCRM\Client\AmoCRMApiClient;
 
 class AmoCrmClient
 {
-    public function getApiClient()
+    public static function getApiClient()
     {
-        $client_id = config('amocrm.client_id');
-        $client_secret = config('amocrm.client_secret');
-        $redirect_uri = config('amocrm.redirect_uri');
-        $account_domain = config('amocrm.account_domain');
+        $client_id = env('CLIENT_ID');
+        $client_secret = env('CLIENT_SECRET');
+        $redirect_uri = env('REDIRECT_URI');
+        $account_domain = env('ACCOUNT_DOMAIN');
         
         $apiClient = new AmoCRMApiClient
         (

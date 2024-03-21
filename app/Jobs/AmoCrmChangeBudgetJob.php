@@ -32,7 +32,7 @@ class AmoCrmChangeBudgetJob implements ShouldQueue
     }
     public function failed(\Exception $exception)
     {
-        $error = "Ошибка при расчете бюджета \n" . $exception->getMessage();
+        $error = "Ошибка при расчете прибыли \n" . $exception->getMessage();
         dump($error);
     }
 }
